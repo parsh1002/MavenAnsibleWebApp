@@ -3,7 +3,7 @@ agent any
 tools{
 maven  'Maven'
 }
-Stages{
+stages{
 stage('Checkout'){
 steps{
 git branch: 'main',url:'https://github.com/parsh1002/MavenAnsibleWebApp.git'
@@ -23,6 +23,7 @@ stage('Deploy'){
 steps{
 sh 'mvn clean package'
 sh 'ansible-playbook ansible/playbook.yml -i ansible/hosts.ini'
+}
 }
 }
 post{
